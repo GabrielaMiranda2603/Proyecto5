@@ -40,7 +40,8 @@ const { createApp } = Vue
         },
         grabar(){
             let producto = {
-                nombre:this.nombre,
+                marca:this.marca,
+                modelo:this.modelo,
                 precio: this.precio,
                 stock: this.stock,
                 imagen:this.imagen
@@ -58,7 +59,7 @@ const { createApp } = Vue
                 })
                 .catch(err => {
                     console.error(err);
-                    alert("Error al Grabarr")
+                    alert("Error al Grabar")
                 })      
         }
     },
