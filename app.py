@@ -54,7 +54,7 @@ productos_schema=ProductoSchema(many=True)  # El objeto productos_schema es para
 
 
 # crea los endpoint o rutas (json)
-@app.route('/productos',methods=['GET'])
+@app.route('/index',methods=['GET'])
 def get_Productos():
     all_productos=Producto.query.all()         # el metodo query.all() lo hereda de db.Model
     result=productos_schema.dump(all_productos)  # el metodo dump() lo hereda de ma.schema y
@@ -64,7 +64,7 @@ def get_Productos():
 
 
 
-@app.route('/productos/<id>',methods=['GET'])
+@app.route('/index/<id>',methods=['GET'])
 def get_producto(id):
     producto=Producto.query.get(id)
     return producto_schema.jsonify(producto)   # retorna el JSON de un producto recibido como parametro
@@ -72,7 +72,7 @@ def get_producto(id):
 
 
 
-@app.route('/productos/<id>',methods=['DELETE'])
+@app.route('/index/<id>',methods=['DELETE'])
 def delete_producto(id):
     producto=Producto.query.get(id)
     db.session.delete(producto)
@@ -80,7 +80,7 @@ def delete_producto(id):
     return producto_schema.jsonify(producto)   # me devuelve un json con el registro eliminado
 
 
-@app.route('/productos', methods=['POST']) # crea ruta o endpoint
+@app.route('/index', methods=['POST']) # crea ruta o endpoint
 def create_producto():
     #print(request.json)  # request.json contiene el json que envio el cliente
     marca=request.json['marca']
@@ -94,7 +94,7 @@ def create_producto():
     return producto_schema.jsonify(new_producto)
 
 
-@app.route('/productos/<id>' ,methods=['PUT'])
+@app.route('/index/<id>' ,methods=['PUT'])
 def update_producto(id):
     producto=Producto.query.get(id)
  

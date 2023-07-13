@@ -3,7 +3,7 @@ const { createApp } = Vue
     data() {
       return {
         productos:[],
-        url:'http://localhost:5000/productos', 
+        url:'http://localhost:5000/index', 
         error:false,
         cargando:true,
         /*atributos para el guardar los valores del formulario */
@@ -55,7 +55,7 @@ const { createApp } = Vue
             fetch(this.url, options)
                 .then(function () {
                     alert("Registro grabado")
-                    window.location.href = "./productos.html";  
+                    window.location.href = "./index.html";  
                 })
                 .catch(err => {
                     console.error(err);

@@ -11,7 +11,7 @@ const { createApp } = Vue
         imagen:"",
         stock:0,
         precio:0,
-        url:'http://localhost:5000/productos/'+id,
+        url:'http://localhost:5000/index/'+id,
        }  
     },
     methods: {
@@ -49,7 +49,7 @@ const { createApp } = Vue
             fetch(this.url, options)
                 .then(function () {
                     alert("Registro modificado")
-                    window.location.href = "./productos.html";             
+                    window.location.href = "./index.html";             
                 })
                 .catch(err => {
                     console.error(err);
